@@ -27,7 +27,7 @@ const DefaultAppSettings = {
     helpTipCopyShown: false, // disable the tooltip about copying fields
     templateHelpShown: false, // disable the tooltip about entry templates
     skipOpenLocalWarn: false, // disable the warning about opening a local file
-    hideEmptyFields: false, // hide empty fields in entries
+    hideEmptyFields: true, // hide empty fields in entries
     skipHttpsWarning: false, // disable the non-HTTPS warning
     demoOpened: false, // hide the demo button inside the More... menu
     fontSize: 2, // font size: 0, 1, 2

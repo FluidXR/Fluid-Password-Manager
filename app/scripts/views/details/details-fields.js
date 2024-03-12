@@ -1,16 +1,16 @@
 import { Locale } from 'util/locale';
 import { StringFormat } from 'util/formatting/string-format';
-import { DateFormat } from 'comp/i18n/date-format';
+// import { DateFormat } from 'comp/i18n/date-format';
 import { AppModel } from 'models/app-model';
 import { FieldViewReadOnly } from 'views/fields/field-view-read-only';
 import { FieldViewOtp } from 'views/fields/field-view-otp';
-import { FieldViewSelect } from 'views/fields/field-view-select';
+// import { FieldViewSelect } from 'views/fields/field-view-select';
 import { FieldViewAutocomplete } from 'views/fields/field-view-autocomplete';
 import { FieldViewText } from 'views/fields/field-view-text';
 import { FieldViewUrl } from 'views/fields/field-view-url';
 import { FieldViewTags } from 'views/fields/field-view-tags';
 import { FieldViewDate } from 'views/fields/field-view-date';
-import { FieldViewHistory } from 'views/fields/field-view-history';
+// import { FieldViewHistory } from 'views/fields/field-view-history';
 import { FieldViewCustom } from 'views/fields/field-view-custom';
 import { FieldViewReadOnlyWithOptions } from 'views/fields/field-view-read-only-with-options';
 import { ExtraUrlFieldName } from 'models/entry-model';
@@ -61,18 +61,18 @@ function createDetailsFields(detailsView) {
             (file) => file.active && !file.readOnly
         );
         if (model.isJustCreated && writeableFiles.length > 1) {
-            const fileNames = writeableFiles.map((file) => {
-                return { id: file.id, value: file.name, selected: file === model.file };
-            });
-            fieldViews.push(
-                new FieldViewSelect({
-                    name: '$File',
-                    title: StringFormat.capFirst(Locale.file),
-                    value() {
-                        return fileNames;
-                    }
-                })
-            );
+            // const fileNames = writeableFiles.map((file) => {
+            //     return { id: file.id, value: file.name, selected: file === model.file };
+            // });
+            // fieldViews.push(
+            //     new FieldViewSelect({
+            //         name: '$File',
+            //         title: StringFormat.capFirst(Locale.file),
+            //         value() {
+            //             return fileNames;
+            //         }
+            //     })
+            // );
         } else {
             if (model.backend) {
                 fieldViewsAside.push(
@@ -85,15 +85,15 @@ function createDetailsFields(detailsView) {
                     })
                 );
             } else {
-                fieldViewsAside.push(
-                    new FieldViewReadOnly({
-                        name: 'File',
-                        title: StringFormat.capFirst(Locale.file),
-                        value() {
-                            return model.fileName;
-                        }
-                    })
-                );
+                // fieldViewsAside.push(
+                //     new FieldViewReadOnly({
+                //         name: 'File',
+                //         title: StringFormat.capFirst(Locale.file),
+                //         value() {
+                //             return model.fileName;
+                //         }
+                //     })
+                // );
             }
         }
         fieldViews.push(
@@ -164,51 +164,51 @@ function createDetailsFields(detailsView) {
                 })
             );
         }
-        fieldViewsAside.push(
-            new FieldViewReadOnly({
-                name: 'Group',
-                title: Locale.detGroup,
-                value() {
-                    return model.groupName;
-                },
-                tip() {
-                    return model.getGroupPath().join(' / ');
-                }
-            })
-        );
-        if (model.created) {
-            fieldViewsAside.push(
-                new FieldViewReadOnly({
-                    name: 'Created',
-                    title: Locale.detCreated,
-                    value() {
-                        return DateFormat.dtStr(model.created);
-                    }
-                })
-            );
-        }
-        if (model.updated) {
-            fieldViewsAside.push(
-                new FieldViewReadOnly({
-                    name: 'Updated',
-                    title: Locale.detUpdated,
-                    value() {
-                        return DateFormat.dtStr(model.updated);
-                    }
-                })
-            );
-        }
-        if (!model.backend) {
-            fieldViewsAside.push(
-                new FieldViewHistory({
-                    name: 'History',
-                    title: StringFormat.capFirst(Locale.history),
-                    value() {
-                        return { length: model.historyLength, unsaved: model.unsaved };
-                    }
-                })
-            );
-        }
+        // fieldViewsAside.push(
+        //     new FieldViewReadOnly({
+        //         name: 'Group',
+        //         title: Locale.detGroup,
+        //         value() {
+        //             return model.groupName;
+        //         },
+        //         tip() {
+        //             return model.getGroupPath().join(' / ');
+        //         }
+        //     })
+        // );
+        // if (model.created) {
+        //     fieldViewsAside.push(
+        //         new FieldViewReadOnly({
+        //             name: 'Created',
+        //             title: Locale.detCreated,
+        //             value() {
+        //                 return DateFormat.dtStr(model.created);
+        //             }
+        //         })
+        //     );
+        // }
+        // if (model.updated) {
+        //     fieldViewsAside.push(
+        //         new FieldViewReadOnly({
+        //             name: 'Updated',
+        //             title: Locale.detUpdated,
+        //             value() {
+        //                 return DateFormat.dtStr(model.updated);
+        //             }
+        //         })
+        //     );
+        // }
+        // if (!model.backend) {
+        //     fieldViewsAside.push(
+        //         new FieldViewHistory({
+        //             name: 'History',
+        //             title: StringFormat.capFirst(Locale.history),
+        //             value() {
+        //                 return { length: model.historyLength, unsaved: model.unsaved };
+        //             }
+        //         })
+        //     );
+        // }
         if (otpEntry) {
             fieldViews.push(
                 new FieldViewOtp({
