@@ -8,10 +8,15 @@
 ### Steps (Windows):
 
 Clone this repo.
+
 Use NVM with Node v16. `nvm install v16` then `nvm use v16`
+
 Install packages `npm install`
+
 Install grunt globally if not present `npm install -g grunt-cli`
+
 Build the app with `grunt` (html files will be in `dist/`). 
+
 
 Tada!
 
