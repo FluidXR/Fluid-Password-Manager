@@ -462,15 +462,7 @@ class ListView extends View {
     copyPassword(e) {
         const id = $(e.target).closest('.list__item').attr('id');
         const item = this.items.get(id);
-        const password = item.password;
-
-        if (password) {
-            if (!CopyPaste.simpleCopy) {
-                CopyPaste.createHiddenInput(password);
-            }
-            const copyRes = CopyPaste.copy(password);
-            this.fieldCopied({ source: item, copyRes });
-        }
+        Events.emit('copy-password', item);
     }
 
     fieldCopied(e) {
