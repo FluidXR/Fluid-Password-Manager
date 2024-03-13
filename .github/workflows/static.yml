@@ -7,60 +7,60 @@ jobs:
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout 🛎️
-      #   uses: actions/checkout@v3
-
-      # - name: Deploy 🚀
-      #   uses: JamesIves/github-pages-deploy-action@v4
-      #   with:
-      #     folder: . # The folder the action should deploy.
-      - name: Upgrade Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-          registry-url: 'https://registry.npmjs.org'
-      - name: Install npm modules
-        run: npm ci
-      - name: Test
-        run: npm test
-      - name: Grunt
-        run: grunt
-      - name: Upload artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: KeeWeb-${{ steps.get_tag.outputs.tag }}.html
-          path: dist
-  publish:
-    runs-on: ubuntu-latest
-    steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-      - name: Download html artifact
-        uses: actions/download-artifact@v1
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          name: KeeWeb-${{ steps.get_tag.outputs.tag }}.html
-          path: html
-      - name: Checkout gh-pages
-        uses: actions/checkout@v2
-        with:
-          ref: gh-pages
-          path: gh-pages
-          fetch-depth: 0
-      - name: Commit dist to gh-pages
-        working-directory: gh-pages
-        run: |
-          git rm -r '*'
-          cp -r ../html/* .
-          mkdir -p .github/workflows
-          echo $GITHUB_SHA > build.txt
-          date >> build.txt
-          git add .
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -am v${{ steps.get_tag.outputs.tag }}
-      - name: Push gh-pages
-        uses: keeweb/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
-          directory: gh-pages
+          folder: dist # The folder the action should deploy.
+  #     - name: Upgrade Node.js
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '16'
+  #         registry-url: 'https://registry.npmjs.org'
+  #     - name: Install npm modules
+  #       run: npm ci
+  #     - name: Test
+  #       run: npm test
+  #     - name: Grunt
+  #       run: grunt
+  #     - name: Upload artifact
+  #       uses: actions/upload-artifact@v1
+  #       with:
+  #         name: KeeWeb-${{ steps.get_tag.outputs.tag }}.html
+  #         path: dist
+  # publish:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout 🛎️
+  #       uses: actions/checkout@v3
+  #     - name: Download html artifact
+  #       uses: actions/download-artifact@v1
+  #       with:
+  #         name: KeeWeb-${{ steps.get_tag.outputs.tag }}.html
+  #         path: html
+  #     - name: Checkout gh-pages
+  #       uses: actions/checkout@v2
+  #       with:
+  #         ref: gh-pages
+  #         path: gh-pages
+  #         fetch-depth: 0
+  #     - name: Commit dist to gh-pages
+  #       working-directory: gh-pages
+  #       run: |
+  #         git rm -r '*'
+  #         cp -r ../html/* .
+  #         mkdir -p .github/workflows
+  #         echo $GITHUB_SHA > build.txt
+  #         date >> build.txt
+  #         git add .
+  #         git config --local user.email "action@github.com"
+  #         git config --local user.name "GitHub Action"
+  #         git commit -am v${{ steps.get_tag.outputs.tag }}
+  #     - name: Push gh-pages
+  #       uses: keeweb/github-push-action@master
+  #       with:
+  #         github_token: ${{ secrets.GITHUB_TOKEN }}
+  #         branch: gh-pages
+  #         directory: gh-pages
