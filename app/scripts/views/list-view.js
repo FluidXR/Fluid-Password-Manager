@@ -14,6 +14,8 @@ import { ListSearchView } from 'views/list-search-view';
 import throttle from 'lodash/throttle';
 import template from 'templates/list.hbs';
 import emptyTemplate from 'templates/list-empty.hbs';
+import { Launcher } from 'comp/launcher';
+import { CopyPaste } from 'comp/browser/copy-paste';
 
 class ListView extends View {
     parent = '.app__list';
@@ -25,7 +27,9 @@ class ListView extends View {
     events = {
         'click': 'click',
         'click .list__table-options': 'tableOptionsClick',
-        'dragstart .list__item': 'itemDragStart'
+        'dragstart .list__item': 'itemDragStart',
+        'click .list__item-copy-user': 'copyUserName',
+        'click .list__item-copy-pass': 'copyPassword'
     };
 
     minWidth = 200;
@@ -439,6 +443,41 @@ class ListView extends View {
             .filter((column) => column.enabled)
             .map((column) => column.name);
         AppSettingsModel.tableViewColumns = tableViewColumns;
+    }
+
+    copyUserName(e) {
+        const id = $(e.target).closest('.list__item').attr('id');
+        const item = this.items.get(id);
+        const userName = item.user;
+
+        if (userName) {
+            if (!CopyPaste.simpleCopy) {
+                CopyPaste.createHiddenInput(userName);
+            }
+            const copyRes = CopyPaste.copy(userName);
+            this.fieldCopied({ source: item, copyRes });
+        }
+    }
+
+    copyPassword(e) {
+        const id = $(e.target).closest('.list__item').attr('id');
+        const item = this.items.get(id);
+        const password = item.password;
+
+        if (password) {
+            if (!CopyPaste.simpleCopy) {
+                CopyPaste.createHiddenInput(password);
+            }
+            const copyRes = CopyPaste.copy(password);
+            this.fieldCopied({ source: item, copyRes });
+        }
+    }
+
+    fieldCopied(e) {
+        Events.emit('copy', { source: e.source, copyRes: e.copyRes });
+        if (AppSettingsModel.minimizeOnFieldCopy) {
+            Launcher.minimizeApp();
+        }
     }
 }
 
