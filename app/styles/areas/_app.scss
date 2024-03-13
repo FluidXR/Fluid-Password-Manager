@@ -33,6 +33,7 @@
         display: flex;
         width: 15em;
         background-color: var(--secondary-background-color);
+        display: none;
         @include mobile {
             &:not(.menu-visible) {
                 display: none;
@@ -98,6 +99,7 @@
 
     &__list {
         flex: 0 0 25em;
+        flex: 0 0 100%!important;
         display: flex;
         align-items: stretch;
         flex-direction: column;
