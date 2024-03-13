@@ -11,7 +11,7 @@ const DefaultAppSettings = {
     autoSave: true, // auto-save open files
     autoSaveInterval: -1, // interval between performing automatic sync, minutes, -1: on every change
     rememberKeyFiles: 'path', // remember keyfiles selected on the Open screen
-    idleMinutes: 15, // app lock timeout after inactivity, minutes
+    idleMinutes: 5, // app lock timeout after inactivity, minutes
     minimizeOnClose: false, // minimise the app instead of closing
     minimizeOnFieldCopy: false, // minimise the app on copy
     tableView: false, // view entries as a table instead of list
