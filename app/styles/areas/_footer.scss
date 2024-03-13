@@ -1,7 +1,7 @@
 .footer {
     display: flex;
     align-items: stretch;
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: flex-start;
     @include mobile {
         background: var(--intermediate-background-color);

@@ -9,7 +9,7 @@ const DefaultAppSettings = {
     autoUpdate: 'install', // auto-update options: "install", "check", ""
     clipboardSeconds: 0, // number of seconds after which the clipboard will be cleared
     autoSave: true, // auto-save open files
-    autoSaveInterval: 0, // interval between performing automatic sync, minutes, -1: on every change
+    autoSaveInterval: -1, // interval between performing automatic sync, minutes, -1: on every change
     rememberKeyFiles: 'path', // remember keyfiles selected on the Open screen
     idleMinutes: 15, // app lock timeout after inactivity, minutes
     minimizeOnClose: false, // minimise the app instead of closing
@@ -26,7 +26,7 @@ const DefaultAppSettings = {
     lockOnOsLock: false, // lock the app when the computer is locked
     helpTipCopyShown: false, // disable the tooltip about copying fields
     templateHelpShown: false, // disable the tooltip about entry templates
-    skipOpenLocalWarn: false, // disable the warning about opening a local file
+    skipOpenLocalWarn: true, // disable the warning about opening a local file
     hideEmptyFields: true, // hide empty fields in entries
     skipHttpsWarning: false, // disable the non-HTTPS warning
     demoOpened: false, // hide the demo button inside the More... menu
@@ -60,7 +60,7 @@ const DefaultAppSettings = {
 
     canOpen: true, // can select and open new files
     canOpenDemo: false, // can open a demo file
-    canOpenSettings: true, // can go to settings
+    canOpenSettings: false, // can go to settings
     canCreate: false, // can create new files
     canImportXml: false, // can import files from XML
     canImportCsv: true, // can import files from CSV
