@@ -86,3 +86,15 @@
         animation: shake 50s cubic-bezier(0.36, 0.07, 0.19, 0.97) 0s infinite;
     }
 }
+
+.lockText {
+    display: inline;
+    margin-right: 0.5em;
+    line-height: 3em;
+    position: relative;
+    top: -0.1em;
+}
+
+.fluidWidth {
+    width:initial;
+}
