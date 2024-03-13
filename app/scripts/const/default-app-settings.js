@@ -60,7 +60,7 @@ const DefaultAppSettings = {
 
     canOpen: true, // can select and open new files
     canOpenDemo: false, // can open a demo file
-    canOpenSettings: false, // can go to settings
+    canOpenSettings: true, // can go to settings
     canCreate: false, // can create new files
     canImportXml: false, // can import files from XML
     canImportCsv: true, // can import files from CSV
