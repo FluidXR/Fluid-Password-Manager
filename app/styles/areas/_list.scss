@@ -162,12 +162,14 @@
         position: absolute;
         top: 0;
         box-sizing: border-box;
+        display: flex !important;
+        justify-content: space-between;
         @include nomobile {
             @include area-selectable();
-            &--active,
-            &--active:hover {
-                @include area-selected();
-            }
+            // &--active,
+            // &--active:hover {
+            //     @include area-selected();
+            // }
         }
         @include mobile {
             margin: 0 $base-padding-h;

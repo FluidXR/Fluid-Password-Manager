@@ -23,7 +23,7 @@
     cursor: default;
     -webkit-app-region: no-drag;
     background-color: var(--selected-item-color);
-    color: var(--selected-item-text-color);
+    // color: var(--selected-item-text-color);
     &:hover {
         color: var(--selected-item-text-color);
     }

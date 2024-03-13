@@ -67,7 +67,7 @@
             error-background-color-active-tr: rgba(shade(map-get($t, error-color), 25%), 0.15),
             modal-background-color: rgba(map-get($t, background-color), map-get($t, modal-opacity)),
             modal-background-color-tr: rgba(map-get($t, background-color), 0),
-            selected-item-color: mix(map-get($t, action-color), map-get($t, background-color), 85%),
+            selected-item-color: mix(map-get($t, action-color), map-get($t, background-color), 95%),
             selected-on-secondary-item-color:
                 mix(map-get($t, medium-color), map-get($t, background-color), 30%),
             selectable-on-secondary-item-color:
