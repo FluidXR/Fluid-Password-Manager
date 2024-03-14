@@ -5,6 +5,7 @@
     &.sel--active {
         background-color: var(--intermediate-background-color);
         color: var(--medium-color);
+        color: #fff;
     }
     &:active {
         background-color: var(--intermediate-pressed-background-color);

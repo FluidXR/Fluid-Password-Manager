@@ -6,8 +6,8 @@
     justify-content: flex-start;
     overflow: hidden;
 
-    &__header {
-    }
+    // &__header {
+    // }
 
     &__items {
         flex: 1;
@@ -40,6 +40,7 @@
             flex-wrap: wrap;
             @include mobile {
                 font-size: 1.2em;
+                margin-left: 0.75em;
             }
         }
         &-field-wrap {
@@ -164,12 +165,18 @@
         box-sizing: border-box;
         display: flex !important;
         justify-content: space-between;
+        color: var(--medium-color);
+        border: 0.1em dashed rgba(255, 255, 255, 0);
         @include nomobile {
             @include area-selectable();
             // &--active,
             // &--active:hover {
             //     @include area-selected();
             // }
+            &--active,
+            &--active:hover {
+                border: 0.1em dashed rgba(255, 255, 255, 0.5);
+            }
         }
         @include mobile {
             margin: 0 $base-padding-h;
@@ -228,9 +235,9 @@
             }
         }
 
-        &-title {
-            margin-left: 2px;
-        }
+        // &-title {
+        //     margin-left: 2px;
+        // }
 
         &-descr {
             font-size: 0.8em;

@@ -109,9 +109,9 @@
         }
         @include mobile {
             flex: 1 1;
-            .app--details-visible & {
-                display: none;
-            }
+            // .app--details-visible & {
+            //     display: none;
+            // }
         }
     }
 

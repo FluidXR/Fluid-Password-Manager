@@ -92,7 +92,7 @@
             </div>
             <div class="open__pass-opening-icon"><i class="fa fa-spinner spin"></i></div>
         </div>
-        <div class="open__settings">
+        {{!-- <div class="open__settings">
             <div class="open__settings-key-file hide" tabindex="25">
                 <i class="fa fa-key open__settings-key-file-icon">
                 </i><span class="open__settings-key-file-name">{{res 'openKeyFile'}}</span>
@@ -102,27 +102,23 @@
                  tabindex="26" title="YubiKey">
                 <div class="open__settings-yubikey__text">YK</div> <i class="fa fa-usb-token open__settings-yubikey-img"></i>
             </div>
-        </div>
+        </div> --}}
         <div class="open__last">
             {{#each lastOpenFiles as |file|}}
                 <div class="open__last-item" data-id="{{file.id}}" title="{{file.path}}" tabindex="{{add @index 30}}"
                      id="open__last-item--{{file.id}}">
-                    {{#if file.icon}}<i class="fa fa-{{file.icon}} open__last-item-icon"></i>{{/if}}
-                    <span class="open__last-item-text">{{file.name}}</span>
-                    {{#if ../canRemoveLatest}}<i class="fa fa-times open__last-item-icon-del"></i>{{/if}}
+                    {{#if file.icon}}<i class="fa fa-{{file.icon}} open__last-item-icon zoom1-5"></i>{{/if}}
+                    <span class="open__last-item-text zoom1-5">{{file.name}}</span>
+                    {{#if ../canRemoveLatest}}<i class="fa fa-times open__last-item-icon-del zoom1-5"></i>{{/if}}
                 </div>
             {{/each}}
         </div>
     </div>
-    <div style="
-    margin-top: 2em;text-align:center;
-    ">
-        <p style="
-            text-align: center;
-        ">
+    <div class="centered">
+        <p>
             Fluid Password Manager (FPM) is a read-only tool for encrypted password vaults.
             <br>
-            <a href="https://github.com/articulite/Fluid-Password-Manager/tree/FluidPM">View the source code on Github.</a> or <a href="https://github.com/articulite/Fluid-Password-Manager/tree/FluidPM#readme">Learn how to migrate to FPM</a>
+            <a href="https://github.com/FluidXR/Fluid-Password-Manager/tree/FluidPM">View the source code on Github.</a> or <a href="https://github.com/FluidXR/Fluid-Password-Manager/tree/FluidPM#readme">Learn how to migrate to FPM</a>
             <br>
             It runs 100% on device without internet.
         </p>

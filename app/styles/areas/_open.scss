@@ -292,6 +292,7 @@
             color: var(--muted-color);
             padding: $base-padding;
             border-radius: var(--block-border-radius);
+            padding: 1.5em;
             &:focus {
                 .open--show-focus & {
                     box-shadow: focused-box-shadow();
@@ -431,4 +432,12 @@
             background-color: var(--action-background-color-focus-tr);
         }
     }
+}
+
+.centered {
+    text-align:center;
+}
+
+.zoom1-5 {
+    zoom: 1.5;
 }
